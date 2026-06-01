@@ -19,8 +19,10 @@
 */
 
 /* _____________ Your Code Here _____________ */
-
-type TupleToObject<T extends readonly any[]> = any
+// built-in type PropertyKey === string | number | symbol
+type TupleToObject<T extends readonly PropertyKey[]> = {
+  [V in T[number]]: V;
+}
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
